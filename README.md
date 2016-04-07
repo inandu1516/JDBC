@@ -20,15 +20,33 @@ Req10. Defensa oscila entre 1 i 10
 
 Req11. Si la criatura no té habilitat especial, la suma màxima entre atac i defensa és 11. Si en té, no pot ser més gran que 9
 
-Req12. El medi especialista d'un equip és aquell medi que més integrants té.
+Req12: Per veure si un pj mata a un altre caldra analitza si l'atac del primer és més gran que la defensa del segon.
 
-Req13. De cada equip guardarem a la BBDD: el nom, potencial, integrants i medi especilista.
+Req13: Els duels tindran 3 casuístiques, els dos pj moren, un mor i l'altre sobreviu o sobreviuen els dos.
 
-Req14. Un PJ, durant el combat, només pot pertanyer a un equip o a cap.
+Req14: Cada combat té lloc en un terreny, si coincideix amb el medi natural d'algun dels jugadors aquest es veure afavorit.
 
-Req15. Cada PJ té un rànquing del total de victories/derrotes.
+Req15: Cada jugador tindra una habilitat especial.
 
-Req16. S'ha de poder consultar els rànquins de tots els PJ.
+Req16: Hi hauran dos habilitats especials: velocitat extrema,la potencia d'atac s'aplicara sobre els punts de defensa primer aixi si el venç l'altre jugador ja no atacara, i l'atac d'en kaito, quan un jugador té aquesta habilitat la potència d'atac se li incrementarà en un valor aleatori entre 1 i 3.
+
+Req17: Als combats en grup, cal fer lluitar equips amb el mateix número d'integrants.
+
+Req18: En el moment que un dels equips quedi amb una inferioritat evident (>1 o >2) perdra automaticament.
+
+Req19: El potencial del equip es calcualara fent servir la potència d'atac i dedefensa, i les armes si existeixen.
+
+Req20: El potencial s'ha de representar de manera visual per cada equip.
+
+Req21. El medi especialista d'un equip és aquell medi que més integrants té.
+
+Req22. De cada equip guardarem a la BBDD: el nom, potencial, integrants i medi especilista.
+
+Req23. Un PJ, durant el combat, només pot pertanyer a un equip o a cap.
+
+Req24. Cada PJ té un rànquing del total de victories/derrotes.
+
+Req25. S'ha de poder consultar els rànquins de tots els PJ.
 
   ----------OPERACIONS USUARIS-----------
 
