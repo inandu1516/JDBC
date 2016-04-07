@@ -32,14 +32,21 @@ Req16. S'ha de poder consultar els rànquins de tots els PJ.
 
   ----------OPERACIONS USUARIS-----------
 
-  Alta / Modificació / Eliminació / Llistat / 
-	Cerca per nom de criatura, raça, filtrat per potència d'atac i/o defensa, medi natural, i habilitat especial.
-	Cerca per codi de sistema de seguretat. 
-	L'alta d'un equip de combat comporta assignar-li els personatges / criatures que el conformen.
-	Cerca de l'historial de combats entre personatges / criatures.
-	Dur un personatge / criatura a combatre. (se li assignarà un PJ oponent automàticament de la llista de PJ's dels demés usuaris).
-	Dur un personatge / criatura a combatre. (se li assignarà un grup oponent automàticament de la llista de PJ's dels demés usuaris)
+Alta / Modificació / Eliminació / Llistat / 
+
+Cerca per nom de criatura, raça, filtrat per potència d'atac i/o defensa, medi natural, i habilitat especial.
+
+Cerca per codi de sistema de seguretat. 
+
+L'alta d'un equip de combat comporta assignar-li els personatges / criatures que el conformen.
+
+Cerca de l'historial de combats entre personatges / criatures.
+
+Dur un personatge / criatura a combatre. (se li assignarà un PJ oponent automàticament de la llista de PJ's dels demés usuaris).
+
+Dur un personatge / criatura a combatre. (se li assignarà un grup oponent automàticament de la llista de PJ's dels demés usuaris)
 	
-	----------OPERACIONS ADMINISTRADOR-----------
-	Operacions d'usuaris + cerca d'usuaris
+----------OPERACIONS ADMINISTRADOR-----------
+
+Operacions d'usuaris + cerca d'usuaris
 	
