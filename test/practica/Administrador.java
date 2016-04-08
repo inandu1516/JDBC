@@ -7,9 +7,17 @@ public class Administrador extends Usuari {
         this.pass = "nolose";
     }
 
-    public static Usuari creaJugador(String nom, String pass){
-        Usuari usr = new Usuari(nom, pass);
+    public Jugador creaJugador(String nom, String pass){
+        Jugador usr = new Jugador(nom, pass);
         return usr;
+    }
+    
+    public void modificarNomJugador(Jugador jugador, String nom){
+        jugador.nom = nom;
+    }
+    
+    public void modificarPassJugador(Jugador jugador, String pass){
+        jugador.pass = pass;
     }
     
     //metodes creacio, modificacio i eliminacio usuaris...

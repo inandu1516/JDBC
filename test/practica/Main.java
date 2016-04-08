@@ -6,8 +6,10 @@ public class Main {
         
         Administrador Morote = new Administrador();
         
-        Usuari Inge = Morote.creaJugador("Inge","nolose");
-        Usuari Marta = Morote.creaJugador("Marta","123");
+        Jugador Inge = Morote.creaJugador("Inge","nolose");
+        Inge.setLema("Kill them all");
+        Morote.modificarNomJugador(Inge, "Ingemar");
+        Jugador Marta = Morote.creaJugador("Marta","123");
         
         System.out.println(Inge + "\n" + Marta);
         
