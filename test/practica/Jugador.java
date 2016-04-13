@@ -11,6 +11,72 @@ public class Jugador extends Usuari {
         super(nom, pass);
     }
     
+    
+    /**
+     * CONSULTEES BD  
+     */
+    
+    public void crearCriatura(String nom, int atac, int defensa, String raça,
+            String medi, String habilitat_esp, String imatge){
+        //INSERT INTO Criaturas(values)......
+    }
+    
+    public void modificaCriatura(String nom, String camp, String val){
+        if(camp == "atac" || camp == "defensa"){
+            int valor = Integer.parseInt(val);
+        }
+        //UPDATE Criatura SET camp = valor where nom = NOM....
+    }
+    
+    public void cercaCriatura(String camp, String val){
+        if(camp == "atac" || camp == "defensa"){
+            int valor = Integer.parseInt(val);
+        }
+        //SELECT * FROM Cruatures WHERE camp = val;
+    }
+    
+    public void eliminarCriatura(String nom){
+        //DELETE FROM Criatura WHERE nom = NOM....
+    }
+    
+    
+    public void llistarCriatura(String nom){
+        //SELECT * FROM Criatura WHERE nom = NOM...
+    }
+    
+    public void criaturesJugador(String nomJugdor){
+        //SELECT * FROM Criatures WHERE nom = nomJugdor....
+    }
+    
+    public void crearEquip(String nomEquip){
+        String nomJugador = this.getNom();
+        //INSERT INTO Equips VALUES nomEquip, nomJugador
+    }
+    
+    public void llistarEquip(String nomEquip){
+        String nomJugador = this.getNom();
+        //SELECT * FROM Equip WHERE nomJugador = "nomJugador"...
+    }
+    
+    public void modificarEquip(String nomEquip){
+        //UPDATE Equips VALUES nomEquip = nomEquip....
+    }
+    
+    public void cambiarCriaturaEquip(String nomCriatura, String nomEquip){
+        //String id = SELECT id from Equips WHERE nomEquip=nomEquip
+        //UPDATE Criatures SET equip = id....
+    }
+    
+    public void afegirCriaturaEquip(String nomCriatura, String nomEquip){
+        //String id = SELECT id from Equips WHERE nomEquip=nomEquip;
+        //UPDATE Criatures SET equip = id where nomCriatura = nomCriatura
+        //UPDATE Equips SET potencial = Avg potencial FROM Criaturas WHERE Equip NATURAL JOIN 
+    }
+    
+    /**
+     *  Getters & Setters (fer UPDATES a la BD!)  
+     */
+    
     public void setVictories(int victories) {
         this.victories = victories;
     }
@@ -31,7 +97,6 @@ public class Jugador extends Usuari {
         this.empats = empats;
     }
     
-    /* ---- Getters & Setters (fer UPDATES a la BD!)*/
     public void setLema(String lema) {
         this.lema = lema;
     }
