@@ -7,29 +7,26 @@ public class Administrador extends Usuari {
         this.pass = "nolose";
     }
 
-    public Jugador creaJugador(String nom, String pass){
-        Jugador usr = new Jugador(nom, pass);
+    public void crearJugador(String nom, String pass){
         
-        //UPDATE table INSERT INTO Table (usr)...
-        return usr;
+        //INSERT INTO Table VALUES...
     }
     
-    public void modificarNomJugador(Jugador jugador, String nom){
-        jugador.nom = nom;
+    public void modificarJugador(String nom, String camp, String val){
         //UPDATE jugadors...
     }
-    
-    public void modificarPassJugador(Jugador jugador, String pass){
-        jugador.pass = pass;
-        //UPDATE jugadors...
-    }
-    
-    public void eliminarJugador(Jugador jugador, String pass){
+   
+   
+    public void eliminarJugador(String nom){
         //delete user from usuaris where nom = nom;
     }
     
     public void cercarJugador(String nom){
         //SELECT * FROM jugadors WHERE nom = nom;
     }
+    public void llistarJugador(){
+        //SELECT * FROM jugadors ;
+    }
+    
     
 }

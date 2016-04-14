@@ -18,53 +18,44 @@ public class Jugador extends Usuari {
     
     public void crearCriatura(String nom, int atac, int defensa, String raça,
             String medi, String habilitat_esp, String imatge){
+        String nomJugador = this.getNom();
         //INSERT INTO Criaturas(values)......
     }
     
     public void modificaCriatura(String nom, String camp, String val){
+        String nomJugador = this.getNom();
         if(camp == "atac" || camp == "defensa"){
             int valor = Integer.parseInt(val);
         }
         //UPDATE Criatura SET camp = valor where nom = NOM....
     }
     
-    public void cercaCriatura(String camp, String val){
-        if(camp == "atac" || camp == "defensa"){
-            int valor = Integer.parseInt(val);
-        }
-        //SELECT * FROM Cruatures WHERE camp = val;
-    }
-    
     public void eliminarCriatura(String nom){
+        String nomJugador = this.getNom();
         //DELETE FROM Criatura WHERE nom = NOM....
     }
     
+    public void cercaCriatura(String camp, String val){
+        String nomJugador = this.getNom();
+        if(camp == "atac" || camp == "defensa"){
+            int valor = Integer.parseInt(val);
+        }
+        //SELECT * FROM Cruatures WHERE camp = val AND nomJugador == propietari;
+    }
     
-    public void llistarCriatura(String nom){
+    public void llistarCriatura(){
+        String nomJugador = this.getNom();
         //SELECT * FROM Criatura WHERE nom = NOM...
     }
     
-    public void criaturesJugador(String nomJugdor){
-        //SELECT * FROM Criatures WHERE nom = nomJugdor....
-    }
-    
+   
     public void crearEquip(String nomEquip){
         String nomJugador = this.getNom();
         //INSERT INTO Equips VALUES nomEquip, nomJugador
     }
     
-    public void llistarEquip(String nomEquip){
-        String nomJugador = this.getNom();
-        //SELECT * FROM Equip WHERE nomJugador = "nomJugador"...
-    }
-    
     public void modificarEquip(String nomEquip){
         //UPDATE Equips VALUES nomEquip = nomEquip....
-    }
-    
-    public void cambiarCriaturaEquip(String nomCriatura, String nomEquip){
-        //String id = SELECT id from Equips WHERE nomEquip=nomEquip
-        //UPDATE Criatures SET equip = id....
     }
     
     public void afegirCriaturaEquip(String nomCriatura, String nomEquip){
@@ -72,6 +63,32 @@ public class Jugador extends Usuari {
         //UPDATE Criatures SET equip = id where nomCriatura = nomCriatura
         //UPDATE Equips SET potencial = Avg potencial FROM Criaturas WHERE Equip NATURAL JOIN 
     }
+    
+    public void cambiarCriaturaEquip(String nomCriatura, String nomEquip){
+        //String id = SELECT id from Equips WHERE nomEquip=nomEquip
+        //UPDATE Criatures SET equip = id....
+    }
+    
+    public void eliminarEquip(String nomEquip){
+        String nomJugador = this.getNom();
+        //DELETE FROM Equip WHERE nomEquip = "nomEquip"...
+    }
+    
+    public void cercarEquip(String nomEquip){
+        String nomJugador = this.getNom();
+        //SELECT * FROM Equip WHERE nomJugador = "nomJugador"...
+    }
+    
+    public void llistarEquip(){
+        String nomJugador = this.getNom();
+        //SELECT * FROM Equip WHERE nomJugador = "nomJugador"...
+    }
+    
+    
+    
+    
+    
+    
     
     /**
      *  Getters & Setters (fer UPDATES a la BD!)  
