@@ -23,7 +23,7 @@ CREATE TABLE Criatura (
     nom VARCHAR(20),
     atac INT,
     defensa INT,
-    raça VARCHAR(10),
+    rasa VARCHAR(10),
     medi VARCHAR(10),
     habilitat_esp VARCHAR(20),
     imatge VARCHAR(20),
@@ -35,10 +35,10 @@ CREATE TABLE Criatura (
 );
 
 
-INSERT INTO Criatura (nom, atac, defensa, raça, medi, imatge, propietari) VALUES ('Draco azur', 4, 4, 'Dragon', 'aire', 'img/draco.jpg','Albert');
-INSERT INTO Criatura (nom, atac, defensa, raça, medi, imatge, propietari) VALUES ('Asaltante Murloc', 2, 1, 'Murloc', 'acuatico', 'img/murloc.jpg','Albert');
-INSERT INTO Criatura (nom, atac, defensa, raça, medi, imatge, propietari) VALUES ('Caballero Murloc', 3, 4, 'Murloc', 'acuatico', 'img/murloc.jpg','Albert');
-INSERT INTO Criatura (nom, atac, defensa, raça, medi, imatge, propietari) VALUES ('Rei Mukla', 4, 4, 'Bestia', 'volador', 'img/draco.jpg','Albert');
+INSERT INTO Criatura (nom, atac, defensa, rasa, medi, imatge, propietari) VALUES ('Draco azur', 4, 4, 'Dragon', 'aire', 'img/draco.jpg','Albert');
+INSERT INTO Criatura (nom, atac, defensa, rasa, medi, imatge, propietari) VALUES ('Asaltante Murloc', 2, 1, 'Murloc', 'acuatico', 'img/murloc.jpg','Albert');
+INSERT INTO Criatura (nom, atac, defensa, rasa, medi, imatge, propietari) VALUES ('Caballero Murloc', 3, 4, 'Murloc', 'acuatico', 'img/murloc.jpg','Albert');
+INSERT INTO Criatura (nom, atac, defensa, rasa, medi, imatge, propietari) VALUES ('Rei Mukla', 4, 4, 'Bestia', 'volador', 'img/draco.jpg','Albert');
 
 
 CREATE TABLE Equip (
