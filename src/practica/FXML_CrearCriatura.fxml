@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="209.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"  fx:controller="practica.FXML_CrearCriaturaController">
+   <children>
+      <Label layoutX="27.0" layoutY="21.0" text="Crear Criatura" />
+      <TextField fx:id="nom" layoutX="24.0" layoutY="48.0" prefHeight="15.0" prefWidth="126.0" promptText="nom" />
+      <TextField fx:id="atac" layoutX="24.0" layoutY="82.0" prefHeight="15.0" prefWidth="126.0" promptText="atac" />
+      <TextField fx:id="defensa" layoutX="25.0" layoutY="118.0" prefHeight="15.0" prefWidth="126.0" promptText="defensa" />
+      <TextField fx:id="raça" layoutX="25.0" layoutY="153.0" prefHeight="15.0" prefWidth="126.0" promptText="raça" />
+      <TextField fx:id="medi" layoutX="26.0" layoutY="186.0" prefHeight="15.0" prefWidth="126.0" promptText="medi" />
+      <TextField fx:id="habilitat_esp" layoutX="25.0" layoutY="218.0" prefHeight="15.0" prefWidth="126.0" promptText="habilitat_esp" />
+      <TextField fx:id="imatge" layoutX="25.0" layoutY="253.0" prefHeight="15.0" prefWidth="126.0" promptText="imatge" />
+      <Button fx:id="btn" layoutX="26.0" layoutY="296.0" mnemonicParsing="false" text="Crear" onAction="#crearCriatura" />
+   </children>
+</AnchorPane>

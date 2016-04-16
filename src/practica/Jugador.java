@@ -22,7 +22,7 @@ public class Jugador extends Usuari {
         //INSERT INTO Criaturas(values)......
     }
     
-    public void modificaCriatura(String nom, String camp, String val){
+    public void modificarCriatura(String nom, String camp, String val){
         String nomJugador = this.getNom();
         if(camp == "atac" || camp == "defensa"){
             int valor = Integer.parseInt(val);
