@@ -48,8 +48,8 @@ public class FXML_CrearCriaturaController implements Initializable {
         try {
             Statement stat = conn.createStatement();
 
-            stat.executeUpdate("INSERT INTO Criatura (nom, atac, defensa, rasa, medi, habilitat_esp, imatge, propietari) VALUES ('Draco asuls', 5, 5, 'Dragon', 'aire', NULL, 'img/draco.jpg','Albert');");
-
+            stat.executeUpdate("INSERT INTO Criatura (nom, atac, defensa, rasa, medi, habilitat_esp, imatge, propietari) VALUES ('Drraco asuls', 5, 5, 'Dragon', 'aire', NULL, 'img/draco.jpg','Albert');");
+            System.out.println("Insert criatura!");
 //            ResultSet resultat = stat.executeQuery("SELECT * FROM prova");
 //            if (resultat.next()) {
 //                System.out.println(resultat.getString(1));
