@@ -8,6 +8,8 @@ package practica;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -24,9 +28,15 @@ import javafx.stage.Stage;
  */
 public class FXML_HomeController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    ObservableList<String> campList = FXCollections.observableArrayList("Nom","Atac","Defensa","Raça","Medi","Habilitat","Imatge");
+    @FXML
+    private TextField valorModificarCText;
+    @FXML
+    private TextField eliminarCText;
+    @FXML
+    private TextField modificarNomCText;
+    @FXML
+    private ChoiceBox modificarCampCChoice;
     @FXML
     private void crearCButton(ActionEvent event) throws IOException{
         System.out.println("Crear Criatura");
@@ -37,10 +47,17 @@ public class FXML_HomeController implements Initializable {
         app_stage.show();
         
     }
-    
     @FXML
     private void eliminarCButton(ActionEvent event) throws IOException{
-        System.out.println("Eliminar Criatura");
+        System.out.println(eliminarCText.getCharacters()+" eliminada");
+        
+    }
+    
+    @FXML
+    private void modificarCButton(ActionEvent event) throws IOException{
+        
+        String camp=String.valueOf(modificarCampCChoice.getSelectionModel().selectedItemProperty().getValue());
+        System.out.println("Criatura "+modificarNomCText.getCharacters()+" ha cambiat "+camp+" pel valor "+valorModificarCText.getCharacters());
         
     }
     @FXML
@@ -59,7 +76,7 @@ public class FXML_HomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        modificarCampCChoice.setItems(campList);
     }    
     
 }
