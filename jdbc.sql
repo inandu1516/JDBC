@@ -6,6 +6,7 @@ USE JDBC;
 
 CREATE TABLE Jugador (
     nom VARCHAR(20),
+    pass VARCHAR(20),
     lema VARCHAR(20),
     victories INT DEFAULT '0', 
     derrotes INT DEFAULT '0', 
