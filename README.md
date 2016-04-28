@@ -68,3 +68,15 @@ Dur un personatge / criatura a combatre. (se li assignarà un grup oponent autom
 
 Operacions d'usuaris + cerca d'usuaris
 	
+
+try {
+            Connection conn = obtenirConnexio();
+            Statement stat = conn.createStatement();
+            stat.executeUpdate("INSERT INTO Jugador VALUES('"+nom+"','"+pass+"','"+lema+"',0,0,0)");
+            conn.close();
+        } catch (SQLException ex) {
+            for (Throwable t : ex)
+                t.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
