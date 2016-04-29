@@ -21,10 +21,16 @@ public class Main {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        /*Administrador Morote = new Administrador();
+        Administrador Morote = new Administrador();
         
-        Jugador Inge = Morote.creaJugador("Inge","nolose");
-        Inge.setLema("Kill them all");
+        Morote.crearJugador("NewPlayer","NewPass","NewLema");
+        Morote.crearJugador("NewPlayer2","NewPass2","NewLema2");
+        Morote.crearJugador("NewPlayer3","NewPass3","NewLema4");
+        Morote.eliminarJugador("NewPlayer");
+        Morote.cercarJugador("NewPlayer2");
+        Morote.llistarJugador();
+
+        /*Inge.setLema("Kill them all");
         Morote.modificarNomJugador(Inge, "Ingemar");
         Jugador Marta = Morote.creaJugador("Marta","123");
         
@@ -37,9 +43,14 @@ public class Main {
 
         try {
             Statement stat = conn.createStatement();
+            stat.executeUpdate("DROP TABLE Criatura");
+            stat.executeUpdate("DROP TABLE Equip");
+            stat.executeUpdate("DROP TABLE Jugador");
 
+            
              stat.executeUpdate("CREATE TABLE Jugador ("
                     + "nom VARCHAR(20),"
+                    + "pass VARCHAR(20),"
                     + "lema VARCHAR(20),"
                     + "victories INT," 
                     + "derrotes INT," 
