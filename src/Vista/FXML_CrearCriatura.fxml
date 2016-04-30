@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="209.0" style="-fx-background-color: linear-gradient(to bottom, Peru, Tan); -fx-border-style: solid;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practica.FXML_CrearCriaturaController">
+   <children>
+      <Label layoutX="27.0" layoutY="21.0" text="Crear Criatura" textFill="#1d2657">
+         <font>
+            <Font name="TakaoPGothic" size="17.0" />
+         </font></Label>
+      <TextField fx:id="crearNomCText" layoutX="24.0" layoutY="48.0" prefHeight="15.0" prefWidth="126.0" promptText="Nom" />
+      <TextField fx:id="crearAtacCText" layoutX="24.0" layoutY="82.0" prefHeight="15.0" prefWidth="126.0" promptText="atac" />
+      <TextField fx:id="crearDefensaCText" layoutX="25.0" layoutY="118.0" prefHeight="15.0" prefWidth="126.0" promptText="defensa" />
+      <TextField fx:id="crearRazaCText" layoutX="25.0" layoutY="153.0" prefHeight="15.0" prefWidth="126.0" promptText="raça" />
+      <TextField fx:id="crearMediCText" layoutX="26.0" layoutY="186.0" prefHeight="15.0" prefWidth="126.0" promptText="medi" />
+      <TextField fx:id="crearHabilitatCText" layoutX="25.0" layoutY="218.0" prefHeight="15.0" prefWidth="126.0" promptText="habilitat_esp" />
+      <TextField fx:id="crearImatgeCText" layoutX="25.0" layoutY="253.0" prefHeight="15.0" prefWidth="126.0" promptText="imatge" />
+      <Button fx:id="crearNovaCButton" layoutX="26.0" layoutY="296.0" mnemonicParsing="false" onAction="#crearCriatura" style="-fx-background-color: Gray; -fx-color: Red;" text="Crear" />
+      <Button fx:id="tornarHomeButton" layoutX="124.0" layoutY="352.0" mnemonicParsing="false" onAction="#tornarHomeButton" style="-fx-background-color: Gray; -fx-color: Red;" text="Tornar" />
+   </children>
+</AnchorPane>
