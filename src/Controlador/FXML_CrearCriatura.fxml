@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="209.0" style="-fx-background-color: linear-gradient(to bottom, Peru, Tan); -fx-border-style: solid;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practica.FXML_CrearCriaturaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="209.0" style="-fx-background-color: linear-gradient(to bottom, Peru, Tan); -fx-border-style: solid;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXML_CrearCriaturaController">
    <children>
       <Label layoutX="27.0" layoutY="21.0" text="Crear Criatura" textFill="#1d2657">
          <font>

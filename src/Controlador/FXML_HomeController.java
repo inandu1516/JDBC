@@ -59,7 +59,7 @@ public class FXML_HomeController implements Initializable {
     @FXML
     private void modificarCButton(ActionEvent event) throws IOException{
         
-        String camp=String.valueOf(modificarCampCChoice.getSelectionModel().selectedItemProperty().getValue());
+       /* String camp=String.valueOf(modificarCampCChoice.getSelectionModel().selectedItemProperty().getValue());
         
         try {
             Connection conn = obtenirConnexio();
@@ -74,7 +74,7 @@ public class FXML_HomeController implements Initializable {
             ex.printStackTrace();
         }
         System.out.println("Criatura "+modificarNomCText.getCharacters()+" ha cambiat "+camp+" pel valor "+valorModificarCText.getCharacters());
-        
+        */
     }
     @FXML
     private void llistarCButton(ActionEvent event) throws IOException{
