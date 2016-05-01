@@ -166,6 +166,8 @@ public class AdministrdorImpl extends Conexion implements DAOAdministrador {
                     + "FOREIGN KEY (propietari) REFERENCES Jugador(nom))");
             
             stat.executeUpdate("INSERT INTO Jugador(nom, pass) VALUES('player','p')");
+            stat.executeUpdate("INSERT INTO Criatura(nom,atac,propietari) VALUES('A',5,'player')");
+            stat.executeUpdate("INSERT INTO Criatura(nom,atac,propietari) VALUES('B',5,'player')");
             
 
             

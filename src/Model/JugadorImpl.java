@@ -92,10 +92,11 @@ public class JugadorImpl extends Conexion implements DAOJugador {
     }
 
     @Override
-    public void sqlCercarCriatura(String camp, String val, String propietari) throws Exception {
+    public String sqlCercarCriatura(String camp, String val, String propietari) throws Exception {
         try{
             this.conectar();
             String campAux;
+            String content="";
             if("nom".equals(camp))
                 campAux = "nom";
             else if("atac".equals(camp))
@@ -113,26 +114,28 @@ public class JugadorImpl extends Conexion implements DAOJugador {
             Statement stat = conexion.createStatement();
             if("atac".equals(camp) || "defensa".equals(camp)){
                 int valAux = Integer.parseInt(val);
+                
                 ResultSet resultat = stat.executeQuery("SELECT nom, atac, defensa, rasa, medi, habilitat_esp FROM Criatura WHERE "+campAux+" = "+valAux+" AND propietari = '"+propietari+"'");
                 while (resultat.next()) {
-                    System.out.println(resultat.getString(1)
+                    content+=resultat.getString(1)
                             + "-" + resultat.getInt(2)
                             + "-" + resultat.getInt(3)
                             + "-" + resultat.getString(4)
                             + "-" + resultat.getString(5)
-                            + "-" + resultat.getString(6));
+                            + "-" + resultat.getString(6)+"\n";
                 }
             }else{
                 ResultSet resultat = stat.executeQuery("SELECT nom, atac, defensa, rasa, medi, habilitat_esp FROM Criatura WHERE "+campAux+" = '"+val+"' AND propietari = '"+propietari+"'");
                 while (resultat.next()) {
-                    System.out.println(resultat.getString(1)
+                    content+=resultat.getString(1)
                             + "-" + resultat.getInt(2)
                             + "-" + resultat.getInt(3)
                             + "-" + resultat.getString(4)
                             + "-" + resultat.getString(5)
-                            + "-" + resultat.getString(6));
+                            + "-" + resultat.getString(6)+"\n";
                 }
             }
+            return content;
             
         } catch (Exception e){
             throw e;
@@ -143,20 +146,21 @@ public class JugadorImpl extends Conexion implements DAOJugador {
     }
 
     @Override
-    public void sqlLlistarCriatura(String propietari) throws Exception {
+    public String sqlLlistarCriatura(String propietari) throws Exception {
         try{
             this.conectar();
-            
+            String content="";
             Statement stat = conexion.createStatement();
             ResultSet resultat = stat.executeQuery("SELECT nom, atac, defensa, rasa, medi, habilitat_esp FROM Criatura WHERE propietari = '"+propietari+"'");
             while (resultat.next()) {
-                System.out.println(resultat.getString(1)
-                        + "-" + resultat.getInt(2)
-                        + "-" + resultat.getInt(3)
-                        + "-" + resultat.getString(4)
-                        + "-" + resultat.getString(5)
-                        + "-" + resultat.getString(6));
-            }            
+                    content+=resultat.getString(1)
+                            + "-" + resultat.getInt(2)
+                            + "-" + resultat.getInt(3)
+                            + "-" + resultat.getString(4)
+                            + "-" + resultat.getString(5)
+                            + "-" + resultat.getString(6)+"\n";
+                }
+            return content;
         } catch (Exception e){
             throw e;
         } finally{

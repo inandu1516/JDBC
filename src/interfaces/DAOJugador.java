@@ -14,8 +14,8 @@ public interface DAOJugador {
             String medi, String habilitat_esp, String propietari) throws Exception;
     public void sqlModificarCriatura(String nom, String camp, String val, String propietari) throws Exception;
     public void sqlEliminarCriatura(String nom, String propietari) throws Exception;
-    public void sqlCercarCriatura(String camp, String val, String propietari) throws Exception;
-    public void sqlLlistarCriatura(String propietari) throws Exception;
+    public String sqlCercarCriatura(String camp, String val, String propietari) throws Exception;
+    public String sqlLlistarCriatura(String propietari) throws Exception;
     
     public void sqlCrearEquip(String nom, String propietari) throws Exception;
     public void sqlModificarEquip(String nom, String val, String propietari) throws Exception;

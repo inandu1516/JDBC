@@ -5,6 +5,9 @@
  */
 package Controlador;
 
+import Model.Jugador;
+import Model.JugadorImpl;
+import interfaces.DAOJugador;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +53,11 @@ public class FXML_CrearCriaturaController implements Initializable {
     @FXML
     private TextField crearImatgeCText;
     
-    
+    DAOJugador jugadorSQL = new JugadorImpl();
+    private static Jugador player;
+    public void setJugador(Jugador player){
+        this.player = player;
+    }
     
     @FXML
     private void tornarHomeButton(ActionEvent event) throws IOException {
@@ -67,55 +74,24 @@ public class FXML_CrearCriaturaController implements Initializable {
     private void crearCriatura(ActionEvent event) {
         //try {
                     String nom = crearNomCText.getText();
-                    String atac = crearAtacCText.getText();
-                    String defensa = crearDefensaCText.getText();
-                    String raza = crearRazaCText.getText();
+                    int atac = Integer.parseInt(crearAtacCText.getText());
+                    int defensa = Integer.parseInt(crearDefensaCText.getText());
+                    String rasa = crearRazaCText.getText();
                     String medi = crearMediCText.getText();
                     String habilitat = crearHabilitatCText.getText();
-                    String imatge = crearImatgeCText.getText();
 
-                    System.out.println(nom);
-                    System.out.println(atac);
-                    System.out.println(defensa);
-                    System.out.println(raza);
-                    System.out.println(medi);
-                    System.out.println(habilitat);
-                    System.out.println(imatge);
+                    try {
+            jugadorSQL.sqlCrearCriatura(nom, atac, defensa, rasa, medi, habilitat, player.getNom());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
                     
 
-            //crearCriatura();
-//        } catch (SQLException ex) {
-//            for (Throwable t : ex)
-//                t.printStackTrace();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-    }
-    
-    public static void crearCriatura() throws SQLException, IOException {
         
     }
     
-    
-    public static Connection obtenirConnexio() throws SQLException, IOException {
-        Properties props = new Properties();
-        FileInputStream in = new FileInputStream("/home/randeth/NetBeansProjects/JavaDB/database.properties");
-        props.load(in);
-        in.close();
-
-        String drivers = props.getProperty("jdbc.drivers");
-        if (drivers != null) {
-            System.setProperty("jdbc.drivers", drivers);
-        }
-        String url = props.getProperty("jdbc.url");
-        String usuari = props.getProperty("jdbc.username");
-        String password = props.getProperty("jdbc.password");
-
-        return DriverManager.getConnection(url, usuari, password);
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
 }
