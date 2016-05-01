@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Model.Jugador;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -40,6 +41,12 @@ public class FXML_HomeController implements Initializable {
     private TextField modificarNomCText;
     @FXML
     private ChoiceBox modificarCampCChoice;
+    
+    Jugador player;
+    public void setJugador(Jugador player){
+        this.player = player;
+        System.out.println(player.getNom());
+    }
     @FXML
     private void crearCButton(ActionEvent event) throws IOException{
         System.out.println("Crear Criatura");

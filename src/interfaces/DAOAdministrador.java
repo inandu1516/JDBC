@@ -18,4 +18,5 @@ public interface DAOAdministrador {
     public void sqlCercarJugador(String nom) throws Exception;
     public void sqlLlistarJugador() throws Exception;
     public void sqlCrearEstructura() throws Exception;
+    public String sqlJugadorLogin(String camp, String val) throws Exception;
 }

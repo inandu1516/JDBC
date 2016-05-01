@@ -164,10 +164,36 @@ public class AdministrdorImpl extends Conexion implements DAOAdministrador {
                     + "ready BOOLEAN,"
                     + "PRIMARY KEY(id),"
                     + "FOREIGN KEY (propietari) REFERENCES Jugador(nom))");
+            
+            stat.executeUpdate("INSERT INTO Jugador(nom, pass) VALUES('player','p')");
+            
 
             
         } finally {
             this.cerrar();
+        }
+    }
+
+    @Override
+    public String sqlJugadorLogin(String camp, String val) throws Exception {
+        try{
+            this.conectar();
+            Statement stat = conexion.createStatement();
+            String campAux;
+            if("nom".equals(camp))
+               campAux="nom";
+            else
+                campAux="pass";
+            ResultSet resultat = stat.executeQuery("SELECT "+campAux+" FROM Jugador WHERE "+campAux+" = '"+val+"'");
+            if (resultat.next()) {
+                    return resultat.getString(1);
+                }
+            else return "0";
+        } catch (Exception e){
+            throw e;
+        } finally{
+            this.cerrar();
+            
         }
     }
     

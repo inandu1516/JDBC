@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Model.AdministrdorImpl;
+import Model.JugadorImpl;
+import interfaces.DAOAdministrador;
+import interfaces.DAOJugador;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +23,8 @@ public class JavaFXApplication7 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
+        
         Parent root = FXMLLoader.load(getClass().getResource("FXML_Log.fxml"));
         
         Scene scene = new Scene(root);
@@ -33,6 +39,12 @@ public class JavaFXApplication7 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try{
+        DAOAdministrador dao = new AdministrdorImpl();
+        dao.sqlCrearEstructura();
+        } catch (Exception e){
+            System.out.println(e);
+        }
         launch(args);
     }
     

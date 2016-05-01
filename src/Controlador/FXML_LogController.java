@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Model.AdministrdorImpl;
+import Model.Jugador;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -21,6 +23,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import Vista.*;
+import interfaces.DAOAdministrador;
 
 /**
  * FXML Controller class
@@ -40,9 +43,15 @@ public class FXML_LogController implements Initializable {
     private void loginButton(ActionEvent event) throws IOException{
         
         try {
+            
 
                     boolean loginValid = validacioLogin(userName, password);
                     if (loginValid){
+                        
+                        Jugador player = new Jugador(userName.getText(), password.getText());
+                        FXML_HomeController home = new FXML_HomeController();
+                        home.setJugador(player);
+                        
                         System.out.println("Validacio correcte !");
                         if(loginValid){
                             Parent home_page_parent = FXMLLoader.load(getClass().getResource("FXML_Home.fxml"));
@@ -72,24 +81,20 @@ public class FXML_LogController implements Initializable {
         String nom = user.getText();
         String pass = password.getText();
         
-        //IF user = select username from jugador...
-        if (nom.length() == 0) {
-            valid = false;
-            throw new ExcepcioCampTextUsuari();
+        try{
+         DAOAdministrador dao = new AdministrdorImpl();
+         if(!nom.equals(dao.sqlJugadorLogin("nom", nom)))
+                valid= false;
+         if(valid==true){
+               if(!pass.equals(dao.sqlJugadorLogin("pass", pass)))
+                  valid= false;
+         }
+         
+        } catch (Exception e){
+            System.out.println(e);
         }
-        //IF user = select paswword from jugador...
-        if (pass.length() == 0) {
-            valid = false;
-            throw new ExcepcioCampTextPassword();
-        }
-        
-        if(pass.equals("admin")){
-            valid = true;
-        }else {
-            valid = false;
-        }
-        
-        return valid;
+            return valid;
+       
     }
     
     private static class ExcepcioCampTextUsuari extends Exception {
