@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, Peru, Tan); -fx-border-style: solid;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXML_HomeController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="647.0" style="-fx-background-color: linear-gradient(to bottom, Peru, Tan); -fx-border-style: solid;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXML_HomeController">
   <tabs>
     <Tab text="Criatures">
       <content>
@@ -44,7 +44,7 @@
                         <Font name="TakaoPGothic" size="17.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c3c3c" height="393.0" layoutX="337.0" layoutY="23.0" stroke="#3c3c3c" strokeType="INSIDE" strokeWidth="2.0" width="4.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c3c3c" height="360.0" layoutX="337.0" layoutY="23.0" stroke="#3c3c3c" strokeType="INSIDE" strokeWidth="2.0" width="4.0" />
                   <Label fx:id="llistarCLabel" layoutX="377.0" layoutY="30.0" text="Llistar criatures" textFill="#1d2657">
                      <font>
                         <Font name="TakaoPGothic" size="17.0" />
@@ -82,6 +82,11 @@
                         <Font name="TakaoPGothic" size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="errorLabel" layoutX="321.0" layoutY="398.0" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -94,24 +99,106 @@
                         <Font name="TakaoPGothic" size="17.0" />
                      </font>
                   </Label>
-                  <Button fx:id="crearEButton" layoutX="157.0" layoutY="27.0" mnemonicParsing="false" onAction="#crearEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Crear">
+                  <Button fx:id="crearEButton" layoutX="171.0" layoutY="59.0" mnemonicParsing="false" onAction="#crearEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Crear">
                      <font>
                         <Font name="TakaoPGothic" size="14.0" />
                      </font>
                   </Button>
-                  <Label fx:id="modificarELabel" layoutX="27.0" layoutY="83.0" text="Modificar equip" textFill="#1d2657">
+                  <Label fx:id="modificarELabel" layoutX="26.0" layoutY="99.0" text="Modificar equip" textFill="#1d2657">
                      <font>
                         <Font name="TakaoPGothic" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="eliminarELabel" layoutX="27.0" layoutY="151.0" text="Eliminar equip" textFill="#1d2657">
+                  <Label fx:id="eliminarELabel" layoutX="27.0" layoutY="200.0" text="Eliminar equip" textFill="#1d2657">
                      <font>
                         <Font name="TakaoPGothic" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="cercarELabel" layoutX="27.0" layoutY="239.0" text="Cercar equip" textFill="#1d2657">
+                  <Label fx:id="cercarELabel" layoutX="23.0" layoutY="288.0" text="Cercar equip" textFill="#1d2657">
                      <font>
                         <Font name="TakaoPGothic" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="crearNomEText" layoutX="27.0" layoutY="58.0" prefHeight="25.0" prefWidth="120.0" promptText="nom" />
+                  <TextField fx:id="nomModificarEText" layoutX="27.0" layoutY="124.0" prefHeight="25.0" prefWidth="118.0" promptText="nom" />
+                  <TextField fx:id="valorModificarEText" layoutX="153.0" layoutY="125.0" prefHeight="25.0" prefWidth="121.0" promptText="valor" />
+                  <Button fx:id="modificarEButton" layoutX="28.0" layoutY="158.0" mnemonicParsing="false" onAction="#modificarEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Modificar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="eliminarNomEText" layoutX="27.0" layoutY="225.0" prefHeight="25.0" prefWidth="118.0" promptText="nom" />
+                  <Button fx:id="eliminarEButton" layoutX="176.0" layoutY="224.0" mnemonicParsing="false" onAction="#eliminarEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Eliminar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <ChoiceBox fx:id="cercarCampEChoice" layoutX="148.0" layoutY="315.0" prefHeight="25.0" prefWidth="115.0" />
+                  <TextField fx:id="cercarNomEText" layoutX="24.0" layoutY="314.0" prefHeight="25.0" prefWidth="119.0" promptText="nom" />
+                  <Label fx:id="cercarELabel" layoutX="25.0" layoutY="350.0" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="cercarEButton" layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#cercarEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Cercar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="cercarELabel1" layoutX="308.0" layoutY="230.0" text="Llistar equip" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="llistarEButton" layoutX="310.0" layoutY="253.0" mnemonicParsing="false" onAction="#llistarEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Llistar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="llistaELabel" layoutX="317.0" layoutY="293.0" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="crearELabel1" layoutX="305.0" layoutY="39.0" text="Afegir criatura a equip" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="criaturaAfegirEText" layoutX="307.0" layoutY="67.0" prefHeight="25.0" prefWidth="135.0" promptText="criatura" />
+                  <TextField fx:id="equipAfegirEText" layoutX="456.0" layoutY="67.0" prefHeight="25.0" prefWidth="114.0" promptText="equip" />
+                  <Button fx:id="afegirCriaturaEButton" layoutX="309.0" layoutY="99.0" mnemonicParsing="false" onAction="#afegirEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Afegir">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="criaturaModificarEText" layoutX="307.0" layoutY="161.0" prefHeight="25.0" prefWidth="135.0" promptText="criatura" />
+                  <Label fx:id="crearELabel11" layoutX="304.0" layoutY="137.0" text="Modificar equip de criatura" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="equipModificarEText" layoutX="454.0" layoutY="161.0" prefHeight="25.0" prefWidth="114.0" promptText="equip" />
+                  <Button fx:id="modificarCriaturaEButton" layoutX="307.0" layoutY="192.0" mnemonicParsing="false" onAction="#modificarCEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Modificar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c3c3c" height="360.0" layoutX="283.0" layoutY="32.0" stroke="#3c3c3c" strokeType="INSIDE" strokeWidth="2.0" width="4.0" />
+                  <Label fx:id="cercarELabel11" layoutX="428.0" layoutY="233.0" text="Llistar criatures per equip" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="equipLlistarEText" layoutX="428.0" layoutY="256.0" prefHeight="25.0" prefWidth="114.0" promptText="equip" />
+                  <Button fx:id="llistarEButton1" layoutX="560.0" layoutY="258.0" mnemonicParsing="false" onAction="#llistarCEButton" style="-fx-background-color: Gray; -fx-color: red;" text="Llistar">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="llistaCELabel" layoutX="433.0" layoutY="291.0" textFill="#1d2657">
+                     <font>
+                        <Font name="TakaoPGothic" size="14.0" />
                      </font>
                   </Label>
                </children></AnchorPane>

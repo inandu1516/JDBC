@@ -37,7 +37,8 @@ public class FXML_HomeController implements Initializable {
 
     ObservableList<String> campList = FXCollections.observableArrayList("nom","atac","defensa","rasa","medi","habilitat_esp");
     ObservableList<String> campList2 = FXCollections.observableArrayList("nom","atac","defensa","rasa","medi","habilitat_esp");
-    @FXML
+    ObservableList<String> campListEquip = FXCollections.observableArrayList("nom","potencial");
+@FXML
     private TextField valorModificarCText;
     @FXML
     private TextField eliminarCText;
@@ -53,6 +54,37 @@ public class FXML_HomeController implements Initializable {
     private Label cercarCLabel1;
     @FXML
     private Label llistaCLabel;
+    @FXML
+    private Label errorLabel;
+    
+    @FXML
+    private TextField crearNomEText;
+    @FXML
+    private TextField nomModificarEText;
+    @FXML
+    private TextField valorModificarEText;
+    @FXML
+    private TextField eliminarNomEText;
+    @FXML
+    private ChoiceBox cercarCampEChoice;
+    @FXML
+    private TextField cercarNomEText;
+    @FXML
+    private Label cercarELabel;
+    @FXML
+    private Label llistaELabel;
+    @FXML
+    private Label llistaCELabel;
+    @FXML
+    private TextField criaturaAfegirEText;
+    @FXML
+    private TextField equipAfegirEText;
+    @FXML
+    private TextField criaturaModificarEText;
+    @FXML
+    private TextField equipModificarEText;
+    @FXML
+    private TextField equipLlistarEText;
     
     DAOJugador jugadorSQL = new JugadorImpl();
     private static Jugador player;
@@ -115,8 +147,78 @@ public class FXML_HomeController implements Initializable {
     }
     @FXML
     private void crearEButton(ActionEvent event) throws IOException{
-        System.out.println("Crear Equip");
-        
+        try {
+            jugadorSQL.sqlCrearEquip(crearNomEText.getText(), player.getNom());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    @FXML
+    private void modificarEButton(ActionEvent event) throws IOException{
+        try {
+            jugadorSQL.sqlModificarEquip(nomModificarEText.getText(), valorModificarEText.getText(), player.getNom());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+     @FXML
+    private void eliminarEButton(ActionEvent event) throws IOException{
+        try {
+            jugadorSQL.sqlEliminarEquip(eliminarNomEText.getText(), player.getNom());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+     @FXML
+    private void cercarEButton(ActionEvent event) throws IOException{
+        String camp=String.valueOf(cercarCampEChoice.getSelectionModel().selectedItemProperty().getValue());
+        try {
+            String content = jugadorSQL.sqlCercarEquip(camp, cercarNomEText.getText(), player.getNom());
+            cercarELabel.setText(content);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    @FXML
+    private void llistarEButton(ActionEvent event) throws IOException{
+        try {
+            String content = jugadorSQL.sqlLlistarEquip(player.getNom());
+            llistaELabel.setText(content);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    @FXML
+    private void afegirEButton(ActionEvent event) throws IOException{
+        try {
+            jugadorSQL.sqlAfegirCriaturaEquip(criaturaAfegirEText.getText(), equipAfegirEText.getText(), player.getNom());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    @FXML
+    private void modificarCEButton(ActionEvent event) throws IOException{
+        try {
+            jugadorSQL.sqlModificarCriaturaEquip(criaturaModificarEText.getText(), equipModificarEText.getText(), player.getNom());        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    @FXML
+    private void llistarCEButton(ActionEvent event) throws IOException{
+        try {
+            String content = jugadorSQL.sqlLlistarCriaturesEquip(equipLlistarEText.getText(),player.getNom());
+            llistaCELabel.setText(content);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
    
     
@@ -126,6 +228,9 @@ public class FXML_HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         modificarCampCChoice.setItems(campList);
         cercarCampCChoice.setItems(campList2);
+        cercarCampEChoice.setItems(campListEquip);
+
+
     }    
     
 }

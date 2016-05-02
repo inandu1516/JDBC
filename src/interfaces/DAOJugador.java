@@ -10,7 +10,7 @@ package interfaces;
  * @author randeth
  */
 public interface DAOJugador {
-    public void sqlCrearCriatura(String nom, int atac, int defensa, String rasa,
+    public boolean sqlCrearCriatura(String nom, int atac, int defensa, String rasa,
             String medi, String habilitat_esp, String propietari) throws Exception;
     public void sqlModificarCriatura(String nom, String camp, String val, String propietari) throws Exception;
     public void sqlEliminarCriatura(String nom, String propietari) throws Exception;
@@ -20,9 +20,10 @@ public interface DAOJugador {
     public void sqlCrearEquip(String nom, String propietari) throws Exception;
     public void sqlModificarEquip(String nom, String val, String propietari) throws Exception;
     public void sqlEliminarEquip(String nom, String propietari) throws Exception;
-    public void sqlCercarEquip(String camp, String val, String propietari) throws Exception;
-    public void sqlLlistarEquip(String propietari) throws Exception;
+    public String sqlCercarEquip(String camp, String val, String propietari) throws Exception;
+    public String sqlLlistarEquip(String propietari) throws Exception;
+    public String sqlLlistarCriaturesEquip(String nom, String propietari) throws Exception;
+    public void sqlAfegirCriaturaEquip(String nomCriatura, String nomEquip, String propietari) throws Exception;
+    public void sqlModificarCriaturaEquip(String nomCriatura, String nomEquip, String propietari) throws Exception;
     
-    public void afegirCriaturaEquip(String nomCriatura, String nomEquip, String propietari) throws Exception;
-    public void modificarCriaturaEquip(String nomCriatura, String nomEquip, String propietari) throws Exception;
 }

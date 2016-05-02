@@ -36,7 +36,7 @@ import javafx.stage.Stage;
 public class FXML_CrearCriaturaController implements Initializable {
     
     @FXML
-    private Label label;
+    private Label resultCrearLabel;
     
     @FXML
     private TextField crearNomCText;
@@ -81,8 +81,14 @@ public class FXML_CrearCriaturaController implements Initializable {
                     String habilitat = crearHabilitatCText.getText();
 
                     try {
-            jugadorSQL.sqlCrearCriatura(nom, atac, defensa, rasa, medi, habilitat, player.getNom());
+            boolean creat = jugadorSQL.sqlCrearCriatura(nom, atac, defensa, rasa, medi, habilitat, player.getNom());
+            if(creat==false){
+                resultCrearLabel.setText("Creacio incorrecte");
+            }else{
+                resultCrearLabel.setText("Creacio correcte");
+            }
         } catch (Exception e) {
+            resultCrearLabel.setText("Creacio incorrecte");
             System.out.println(e);
         }
                     
