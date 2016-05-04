@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Model.Jugador;
 import Model.JugadorImpl;
+import Model.LluitaImpl;
 import interfaces.DAOJugador;
+import interfaces.DAOLluita;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -86,11 +85,31 @@ public class FXML_HomeController implements Initializable {
     @FXML
     private TextField equipLlistarEText;
     
+//    -------- lluita --------
+    @FXML
+    private TextField nomJug1;
+    @FXML
+    private TextField nomJug2;
+    @FXML
+    private TextField nomCriatura_1;
+    @FXML
+    private TextField nomCriatura_2;
+    @FXML
+    private Label Criatura_1_inicial;
+    @FXML
+    private Label Criatura_2_inicial;
+    @FXML
+    private Label medi;
+    
+    //-------- lluita --------
+    
+    DAOLluita lluitaSQL = new LluitaImpl();
     DAOJugador jugadorSQL = new JugadorImpl();
     private static Jugador player;
     public void setJugador(Jugador player){
         this.player = player;
     }
+    
     @FXML
     private void crearCButton(ActionEvent event) throws IOException{
         FXML_CrearCriaturaController crear = new FXML_CrearCriaturaController();
@@ -221,7 +240,42 @@ public class FXML_HomeController implements Initializable {
         }
     }
    
+//    --------------- LLUITA ----------------------
+    @FXML
+    private void cercarCriaturaJugador_1(ActionEvent event) throws IOException{
+        try {
+            String nomJugador = nomJug1.getText();
+            String nomCriatura = nomCriatura_1.getText();
+            String content = lluitaSQL.sqlCercarCriatura(nomJugador, nomCriatura);
+            Criatura_1_inicial.setText(content);
+            System.out.println(nomCriatura_1.getText());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
+    @FXML
+    private void cercarCriaturaJugador_2(ActionEvent event) throws IOException{
+        try {
+            String nomJugador = nomJug2.getText();
+            String nomCriatura = nomCriatura_2.getText();
+            String content = lluitaSQL.sqlCercarCriatura(nomJugador, nomCriatura);
+            Criatura_2_inicial.setText(content);
+            System.out.println(nomCriatura_2.getText());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    @FXML
+    private void Lluita(ActionEvent event) throws IOException{
+        try {
+            String combat = lluitaSQL.sqlCombatIndividual(nomJug1.getText(),nomCriatura_1.getText(),nomJug2.getText(),nomCriatura_2.getText());
+            medi.setText(combat);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
     
     
     @Override

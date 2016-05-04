@@ -19,7 +19,7 @@ public class Conexion {
     private final String JDBC_DRIVER ="com.mysql.jdbc.Driver"; 
     private final String DB_URL ="jdbc:mysql://localhost:3306/jdbc"; 
     private final String USER ="root"; 
-    private final String PASS ="rnd33";
+    private final String PASS ="inge101";
     public void conectar() throws Exception{
         try{
             conexion = DriverManager.getConnection(DB_URL, USER, PASS);
