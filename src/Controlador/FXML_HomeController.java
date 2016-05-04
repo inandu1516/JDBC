@@ -100,8 +100,18 @@ public class FXML_HomeController implements Initializable {
     private Label Criatura_2_inicial;
     @FXML
     private Label medi;
+    @FXML
+    private Label guanyador;
+    @FXML
+    private Label Criatura_1_final;
+    @FXML
+    private Label Criatura_2_final;
     
-    //-------- lluita --------
+    //-------- Equips --------
+    @FXML
+    private TextField nomEquip1;
+    @FXML
+    private TextField nomEquip2;
     
     DAOLluita lluitaSQL = new LluitaImpl();
     DAOJugador jugadorSQL = new JugadorImpl();
@@ -240,7 +250,7 @@ public class FXML_HomeController implements Initializable {
         }
     }
    
-//    --------------- LLUITA ----------------------
+//    --------------- LLUITA INDIVIDUAL ----------------------
     @FXML
     private void cercarCriaturaJugador_1(ActionEvent event) throws IOException{
         try {
@@ -272,12 +282,51 @@ public class FXML_HomeController implements Initializable {
         try {
             String combat = lluitaSQL.sqlCombatIndividual(nomJug1.getText(),nomCriatura_1.getText(),nomJug2.getText(),nomCriatura_2.getText());
             medi.setText(combat);
+            String resultatCombat;
+            String nomGuanyador = lluitaSQL.sqlGetGuanyador();
+            if(!"".equals(nomGuanyador)){
+                resultatCombat = " " + nomGuanyador + " guanya el combat!";
+            }else{
+                resultatCombat = "Han mort els 2!";
+            }
+            guanyador.setText(resultatCombat);
+            System.out.println(resultatCombat);
+            Criatura_1_final.setText(lluitaSQL.sqlC1final());
+            Criatura_2_final.setText(lluitaSQL.sqlC2final());
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
     
+    //    --------------- LLUITA X EQUIPS ----------------------
+    //SELECT Criatura.nom FROM Criatura INNER JOIN Equip ON Criatura.equip = Equip.id WHERE Equip.nom = "DAW-2";
     
+    @FXML
+    private void cercarC1random(ActionEvent event) throws IOException{
+        try {
+            String Equip1 = nomEquip1.getText();
+            System.out.println(Equip1);
+            String content = lluitaSQL.sqlCercarC1random(Equip1);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    @FXML
+    private void cercarC2random(ActionEvent event) throws IOException{
+        try {
+            String Equip2 = nomEquip2.getText();
+            System.out.println(Equip2);
+            String content = lluitaSQL.sqlCercarC1random(Equip2);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    @FXML
+    private void LluitaRandom(ActionEvent event) throws IOException{
+        System.out.println("LluitaRandom");
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         modificarCampCChoice.setItems(campList);
